@@ -34,8 +34,8 @@ public class RickAndMortyTests {
         //Получаем данные расы и локейшн последнего персонажа и Морти и сравниваем их
         String humanPerson = rickAndMortySteps.getHumanPerson(characterLastInt);
         HashMap<String, List<String>> locationPerson = rickAndMortySteps.getLocationPerson(characterLastInt);
-        String humanMorty = rickAndMortySteps.getMortyHuman(2);
-        HashMap<String, List<String>> locationMorty = rickAndMortySteps.getLocationMorty(2);
+        String humanMorty = rickAndMortySteps.getHumanPerson(2);
+        HashMap<String, List<String>> locationMorty = rickAndMortySteps.getLocationPerson(2);
         Assert.assertEquals(humanPerson, humanMorty, "Раса Морти и последнего персонажа задания не совпадают!");
         Assert.assertEquals(locationPerson, locationMorty, "Расположение Морти и последнего персонажа задания " +
                 "не совпадают!");

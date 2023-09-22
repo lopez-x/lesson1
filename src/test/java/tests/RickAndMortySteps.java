@@ -14,15 +14,21 @@ import static io.restassured.RestAssured.given;
 public class RickAndMortySteps {
     private final RequestSpecification rickSpecification = new RequestSpecBuilder().setBaseUri("https://rickandmortyapi.com/api").build();
 
-    public List<String> getCharacterEpisodes(int characterId) {
+    public Response getResponse(int someId) {
         Response response = given()
                 .spec(rickSpecification)
                 .when()
-                .get("/character/" + characterId)
+                .get("/character/" + someId)
                 .then()
                 .extract()
                 .response();
-        List<String> episodes = response.getBody().jsonPath().get("episode");
+        return response;
+    }
+
+    public List<String> getCharacterEpisodes(int characterId) {
+        int someId = characterId;
+        Response makeResponce = getResponse(someId);
+        List<String> episodes = makeResponce.getBody().jsonPath().get("episode");
         return episodes;
     }
 
@@ -39,50 +45,16 @@ public class RickAndMortySteps {
     }
 
     public String getHumanPerson(int characterLastInt) {
-        Response response = given()
-                .spec(rickSpecification)
-                .when()
-                .get("/character/" + characterLastInt)
-                .then()
-                .extract()
-                .response();
-        String humanPerson = response.getBody().jsonPath().get("species");
+        int someId = characterLastInt;
+        Response makeResponce = getResponse(someId);
+        String humanPerson = makeResponce.getBody().jsonPath().get("species");
         return humanPerson;
     }
 
     public HashMap<String, List<String>> getLocationPerson(int characterLastInt) {
-        Response response = given()
-                .spec(rickSpecification)
-                .when()
-                .get("/character/" + characterLastInt)
-                .then()
-                .extract()
-                .response();
-        HashMap<String, List<String>> locationPerson = response.getBody().jsonPath().get("location");
+        int someId = characterLastInt;
+        Response makeResponce = getResponse(someId);
+        HashMap<String, List<String>> locationPerson = makeResponce.getBody().jsonPath().get("location");
         return locationPerson;
-    }
-
-    public String getMortyHuman(int characterLastInt) {
-        Response response = given()
-                .spec(rickSpecification)
-                .when()
-                .get("/character/" + characterLastInt)
-                .then()
-                .extract()
-                .response();
-        String humanMorty = response.getBody().jsonPath().get("species");
-        return humanMorty;
-    }
-
-    public HashMap<String, List<String>> getLocationMorty(int characterLastInt) {
-        Response response = given()
-                .spec(rickSpecification)
-                .when()
-                .get("/character/" + characterLastInt)
-                .then()
-                .extract()
-                .response();
-        HashMap<String, List<String>> locationMorty = response.getBody().jsonPath().get("location");
-        return locationMorty;
     }
 }
