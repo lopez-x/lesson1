@@ -27,8 +27,7 @@ public class RickAndMortySteps {
 
     public List<String> getCharacterEpisodes(int characterId) {
         int someId = characterId;
-        Response makeResponce = getResponse(someId);
-        List<String> episodes = makeResponce.getBody().jsonPath().get("episode");
+        List<String> episodes = getResponse(someId).getBody().jsonPath().get("episode");
         return episodes;
     }
 
@@ -46,15 +45,13 @@ public class RickAndMortySteps {
 
     public String getHumanPerson(int characterLastInt) {
         int someId = characterLastInt;
-        Response makeResponce = getResponse(someId);
-        String humanPerson = makeResponce.getBody().jsonPath().get("species");
+        String humanPerson = getResponse(someId).getBody().jsonPath().get("species");
         return humanPerson;
     }
 
     public HashMap<String, List<String>> getLocationPerson(int characterLastInt) {
         int someId = characterLastInt;
-        Response makeResponce = getResponse(someId);
-        HashMap<String, List<String>> locationPerson = makeResponce.getBody().jsonPath().get("location");
+        HashMap<String, List<String>> locationPerson = getResponse(someId).getBody().jsonPath().get("location");
         return locationPerson;
     }
 }
