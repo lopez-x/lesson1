@@ -1,4 +1,4 @@
-package tests;
+package tests.api.steps;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;

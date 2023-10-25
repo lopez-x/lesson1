@@ -1,10 +1,12 @@
-package tests;
+package tests.api.tests;
 
 import java.util.*;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import tests.api.steps.RickAndMortySteps;
+
 import java.util.List;
 
 public class RickAndMortyTests {

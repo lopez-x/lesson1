@@ -1,9 +1,10 @@
-package tests;
+package tests.api.tests;
 
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import tests.api.steps.ReqresSteps;
 
 public class ReqresTests {
     private ReqresSteps reqresSteps;
