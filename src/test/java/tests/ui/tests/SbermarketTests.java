@@ -41,11 +41,11 @@ public class SbermarketTests {
     public void searchTest() {
         String productName = "Чиабатта";
         sbermarketSteps.metroClick();
-        String priceMetro = sbermarketSteps.Search(productName);
+        String priceMetro = sbermarketSteps.search(productName);
 
         open("https://sbermarket.ru/");
         sbermarketSteps.auchanClick();
-        String priceAuchan = sbermarketSteps.Search(productName);
+        String priceAuchan = sbermarketSteps.search(productName);
         Assert.assertNotEquals(priceMetro, priceAuchan, "Цены совпадают");
     }
 }

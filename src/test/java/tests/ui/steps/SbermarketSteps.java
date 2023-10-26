@@ -8,16 +8,19 @@ public class SbermarketSteps {
     public void cookiesRemove(){
         SbermarketPage.cookiesButton.click();
     }
+
     @Step("Переходим в магазин Metro")
     public void metroClick() {
         SbermarketPage.metroButton.click();
     }
+
     @Step("Переходим в магазин Auchan")
     public void auchanClick() {
         SbermarketPage.auchanButton.click();
     }
+
     @Step("Ищем товар {value} в магазине")
-    public String Search(String value) {
+    public String search(String value) {
         SbermarketPage.searchField.setValue(value);
         SbermarketPage.searchButton.click();
         return SbermarketPage.firstProductPrice.getOwnText();
